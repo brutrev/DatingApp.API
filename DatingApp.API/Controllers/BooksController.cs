@@ -19,20 +19,20 @@ namespace DatingApp.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(_bookService.GetAll());
+            return Ok(await _bookService.GetAsync());
         }
 
         [HttpGet("{id:length(24)}", Name = "GetBook")]
-        public ActionResult<Book> Get(string id)
+        public async Task<IActionResult> Get(string id)
         {
-            var book = _bookService.GetById(id);
+            var book = await _bookService.GetAsync(id);
 
             if (book == null)
             {
                 return NotFound();
             }
 
-            return book;
+            return Ok(book);
         }
 
         [HttpPost]
@@ -46,14 +46,14 @@ namespace DatingApp.API.Controllers
         [HttpPut("{id:length(24)}")]
         public IActionResult Update(string id, Book bookIn)
         {
-            var book = _bookService.GetById(id);
+            var book = _bookService.Get(id);
 
             if (book == null)
             {
                 return NotFound();
             }
 
-            _bookService.Update(bookIn); 
+            _bookService.Update(bookIn);
 
             return NoContent();
         }
@@ -61,7 +61,7 @@ namespace DatingApp.API.Controllers
         [HttpDelete("{id:length(24)}")]
         public IActionResult Delete(string id)
         {
-            var book = _bookService.GetById(id);
+            var book = _bookService.Get(id);
 
             if (book == null)
             {

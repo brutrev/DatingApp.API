@@ -2,6 +2,7 @@
 using DatingApp.API.Repository;
 using DatingApp.API.Service.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DatingApp.API.Service
 {
@@ -14,14 +15,24 @@ namespace DatingApp.API.Service
             _bookRepository = bookRepository;
         }
 
-        public List<Book> GetAll()
+        public List<Book> Get()
         {
             return _bookRepository.Get();
         }
 
-        public Book GetById(string id)
+        public Book Get(string id)
         {
             return _bookRepository.Get(id);
+        }
+
+        public async Task<List<Book>> GetAsync()
+        {
+            return await _bookRepository.GetAsync();
+        }
+
+        public async Task<Book> GetAsync(string id)
+        {
+            return await _bookRepository.GetAsync(id);
         }
 
         public Book Create(Book book)

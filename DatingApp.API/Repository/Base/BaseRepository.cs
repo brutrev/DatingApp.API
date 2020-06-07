@@ -3,6 +3,7 @@ using DatingApp.API.Models.Base;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DatingApp.API.Repository.Base
 {
@@ -32,6 +33,16 @@ namespace DatingApp.API.Repository.Base
         public T Get(string id)
         {
             return _collection.Find(t => t.Id == id).FirstOrDefault();
+        }
+
+        public async Task<List<T>> GetAsync()
+        {
+            return await _collection.Find(t => true).ToListAsync();
+        }
+
+        public async Task<T> GetAsync(string id)
+        {
+            return await _collection.Find(t => t.Id == id).FirstOrDefaultAsync();
         }
 
         public T Create(T obj)
