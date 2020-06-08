@@ -1,5 +1,5 @@
 ﻿using DatingApp.API.Models;
-using DatingApp.API.Repository;
+using DatingApp.API.Repository.Interfaces;
 using DatingApp.API.Service.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,9 +8,9 @@ namespace DatingApp.API.Service
 {
     public class BookService : IBookService
     {
-        private readonly BookRepository _bookRepository;
+        private readonly IBookRepository _bookRepository;
 
-        public BookService(BookRepository bookRepository)
+        public BookService(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
         }

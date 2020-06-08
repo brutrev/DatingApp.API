@@ -37,14 +37,11 @@ namespace DatingApp.API
             services.AddSingleton<IDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IBookService, BookService>();
 
-
-            services.AddSingleton<BookRepository>();
-            services.AddSingleton<BookService>();
-
-            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
-
+            services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();
             services.AddCors();

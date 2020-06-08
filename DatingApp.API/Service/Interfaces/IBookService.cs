@@ -6,12 +6,12 @@ namespace DatingApp.API.Service.Interfaces
 {
     interface IBookService
     {
-        public List<Book> Get();
-        public Book Get(string id);
-        public Task<List<Book>> GetAsync();
-        public Task<Book> GetAsync(string id);
-        public Book Create(Book book);
-        public void Update(Book book);
-        public void Remove(string id);
+        List<Book> Get();
+        Book Get(string id);
+        Task<List<Book>> GetAsync();
+        Task<Book> GetAsync(string id);
+        Book Create(Book book);
+        void Update(Book book);
+        void Remove(string id);
     }
 }

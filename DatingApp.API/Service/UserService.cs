@@ -1,6 +1,5 @@
 ﻿using DatingApp.API.Models;
 using DatingApp.API.Models.Exceptions;
-using DatingApp.API.Repository;
 using DatingApp.API.Repository.Interfaces;
 using DatingApp.API.Service.Interfaces;
 using System.Security.Cryptography;
@@ -13,7 +12,7 @@ namespace DatingApp.API.Service
     {
         private readonly IUserRepository _userRepository;
 
-        public UserService(UserRepository userRepository)
+        public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }

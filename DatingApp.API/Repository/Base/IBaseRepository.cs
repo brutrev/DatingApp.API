@@ -6,14 +6,14 @@ namespace DatingApp.API.Repository.Base
 {
     public interface IBaseRepository<T> where T : IModelBase
     {
-        public List<T> Get();
-        public T Get(string id);
-        public Task<List<T>> GetAsync();
-        public Task<T> GetAsync(string id);
-        public T Create(T obj);
-        public Task<T> CreateAsync(T obj);
-        public void Update(T obj);
-        public void Remove(T obj);
-        public void Remove(string id);
+        List<T> Get();
+        T Get(string id);
+        Task<List<T>> GetAsync();
+        Task<T> GetAsync(string id);
+        T Create(T obj);
+        Task<T> CreateAsync(T obj);
+        void Update(T obj);
+        void Remove(T obj);
+        void Remove(string id);
     }
 }

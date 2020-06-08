@@ -2,8 +2,8 @@
 {
     public interface IModelBase
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public bool Deleted { get; set; }
+        string Id { get; set; }
+        string Name { get; set; }
+        bool Deleted { get; set; }
     }
 }
