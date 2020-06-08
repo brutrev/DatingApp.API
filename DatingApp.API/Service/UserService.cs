@@ -1,4 +1,5 @@
 ﻿using DatingApp.API.Models;
+using DatingApp.API.Models.Exceptions;
 using DatingApp.API.Repository;
 using DatingApp.API.Repository.Interfaces;
 using DatingApp.API.Service.Interfaces;
@@ -30,8 +31,18 @@ namespace DatingApp.API.Service
             return user;
         }
 
-        public async Task<User> Register(User user, string password)
+        public async Task<User> Register(string username, string password)
         {
+            username = username.ToLower();
+
+            if (await _userRepository.Exists(username))
+                throw new UserAlreadyExistsException(username);
+
+            User user = new User()
+            {
+                Username = username
+            };
+
             byte[] passwordHash, passwordSalt;
 
             CreatePasswordHash(password, out passwordHash, out passwordSalt);

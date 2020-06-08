@@ -1,4 +1,4 @@
-﻿using DatingApp.API.Models;
+﻿using DatingApp.API.Models.Exceptions;
 using DatingApp.API.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -16,10 +16,17 @@ namespace DatingApp.API.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(User user, string password)
+        [HttpPost("resgister")]
+        public async Task<IActionResult> Register(string username, string password)
         {
-            return Ok(await _userService.Register(user, password));
+            try
+            {
+                return Ok(await _userService.Register(username, password));
+            }
+            catch (UserAlreadyExistsException uex)
+            {
+                return BadRequest(uex.Message);
+            }
         }
     }
 }
