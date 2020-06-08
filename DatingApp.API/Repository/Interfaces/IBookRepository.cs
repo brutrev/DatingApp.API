@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace DatingApp.API.Repository.Interfaces
+﻿namespace DatingApp.API.Repository.Interfaces
 {
-    public class IBookRepository
+    public interface IBookRepository
     {
     }
 }

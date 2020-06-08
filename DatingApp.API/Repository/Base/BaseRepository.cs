@@ -51,6 +51,12 @@ namespace DatingApp.API.Repository.Base
             return obj;
         }
 
+        public async Task<T> CreateAsync(T obj)
+        {
+            await _collection.InsertOneAsync(obj);
+            return obj;
+        }
+
         public void Update(T obj)
         {
             _collection.ReplaceOne(t => t.Id == obj.Id, obj);

@@ -11,6 +11,7 @@ namespace DatingApp.API.Repository.Base
         public Task<List<T>> GetAsync();
         public Task<T> GetAsync(string id);
         public T Create(T obj);
+        public Task<T> CreateAsync(T obj);
         public void Update(T obj);
         public void Remove(T obj);
         public void Remove(string id);
