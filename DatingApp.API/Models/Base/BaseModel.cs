@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace DatingApp.API.Models.Base
 {
-    public class ModelBase : IModelBase
+    public class BaseModel : IBaseModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -11,7 +11,7 @@ namespace DatingApp.API.Models.Base
         public string Name { get; set; }
         public bool Deleted { get; set; }
 
-        public ModelBase()
+        public BaseModel()
         {
         }
     }

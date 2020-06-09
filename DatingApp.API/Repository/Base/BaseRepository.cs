@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatingApp.API.Repository.Base
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : IModelBase
+    public class BaseRepository<T> : IBaseRepository<T> where T : IBaseModel
     {
         private IMongoDatabase _database { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace DatingApp.API.Models
 {
-    public class Book : ModelBase
+    public class Book : BaseModel
     {
         public decimal Price { get; set; }
         public string Category { get; set; }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace DatingApp.API.Repository.Base
 {
-    public interface IBaseRepository<T> where T : IModelBase
+    public interface IBaseRepository<T> where T : IBaseModel
     {
         List<T> Get();
         T Get(string id);
