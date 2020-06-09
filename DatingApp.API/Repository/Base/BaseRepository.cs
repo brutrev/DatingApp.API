@@ -1,5 +1,4 @@
-﻿using DatingApp.API.Data;
-using DatingApp.API.Models.Base;
+﻿using DatingApp.API.Models.Base;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
