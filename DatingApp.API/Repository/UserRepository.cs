@@ -1,5 +1,4 @@
-﻿using DatingApp.API.Data;
-using DatingApp.API.Models;
+﻿using DatingApp.API.Models;
 using DatingApp.API.Repository.Base;
 using DatingApp.API.Repository.Interfaces;
 using MongoDB.Driver;
