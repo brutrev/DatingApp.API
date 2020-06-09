@@ -1,17 +1,19 @@
 ﻿using DatingApp.API.Models;
-using DatingApp.API.Service;
+using DatingApp.API.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace DatingApp.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly BookService _bookService;
+        private readonly IBookService _bookService;
 
-        public BooksController(BookService bookService)
+        public BooksController(IBookService bookService)
         {
             _bookService = bookService;
         }
@@ -22,6 +24,7 @@ namespace DatingApp.API.Controllers
             return Ok(await _bookService.GetAsync());
         }
 
+        [AllowAnonymous]
         [HttpGet("{id:length(24)}", Name = "GetBook")]
         public async Task<IActionResult> Get(string id)
         {

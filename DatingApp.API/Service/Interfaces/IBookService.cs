@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace DatingApp.API.Service.Interfaces
 {
-    interface IBookService
+    public interface IBookService
     {
         List<Book> Get();
         Book Get(string id);

@@ -10,7 +10,7 @@ namespace DatingApp.API.Models.Exceptions
 
         public static string CreateErrorMessage(string username)
         {
-            return $"Username {username} already taken";
+            return $"The username '{username}' is already taken";
         }
     }
 }
