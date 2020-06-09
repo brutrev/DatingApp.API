@@ -1,4 +1,4 @@
-﻿namespace DatingApp.API.Data
+﻿namespace DatingApp.API.Repository.Base
 {
     public class DatabaseSettings : IDatabaseSettings
     {
