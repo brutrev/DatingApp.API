@@ -2,6 +2,7 @@
 using DatingApp.API.Models.Exceptions;
 using DatingApp.API.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -39,9 +40,9 @@ namespace DatingApp.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForRegisterDto userForRegister)
+        public async Task<IActionResult> Login(UserForLoginDto userForLogin)
         {
-            var token = await _userService.Login(userForRegister.Username, userForRegister.Password);
+            var token = await _userService.Login(userForLogin.Username, userForLogin.Password);
             if (token == null)
                 return Unauthorized();
 
